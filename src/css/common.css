@@ -1,0 +1,25 @@
+.opt-btn {
+    display: inline-block;
+    width: 120px;
+    height: 36px;
+    border: 1px solid #fff;
+    text-align: center;
+    vertical-align: middle;
+    background-color: #449be7;
+    border-radius: 10px;
+    text-decoration-line: none;
+    color: #fff;
+    font-size: 16px;
+    line-height: 36px;
+}
+
+.c-box {
+    width: 400px;
+    border: 1px solid grey;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.box-line {
+    margin: 10px 0px;
+}
