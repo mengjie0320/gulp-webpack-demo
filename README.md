@@ -41,6 +41,23 @@ __前端模块化是前端组件化、工程化的基石。__
     css/sass/less 文件中的 @import 语句。
     样式(url(...))或 HTML 文件(</img src=.../>)中的图片链接(image url)
 
+## webpack的执行过程：
+(compiler模块是webpack的支柱引擎，扩展自Tapable类；)
+1、初始化Compiler：new Webpack(config) 得到 Compiler对象
+2、开始编译：调用Compiler对象的 run 方法
+3、确定入口：entry
+4、编译模块：从入口文件出发，调用所以配置的 loader 对模块进行编译，再找出该模块依赖模块，递归加载；
+    最终形成每个模块被编译后的最终内容及它们之间的依赖关系。
+5、输出资源：根据依赖关系，组装多个模块的chunk，再把该chunk转换成一个单独文件加到输出列表。
+    可在此及之前修改输出内容；
+6、输出完成：根据配置确定输入文件和路径，内容写入。
+
+## webpack关键模块简介：
+loader\plugin\webpack的简写在createWebpack文件夹下。
+
+loader 用于对模块的源代码进行转换。loader 可以使你在 import 或"加载"模块时预处理文件。因此，loader 类似于其他构建工具中“任务(task)”，并提供了处理前端构建步骤的强大方法。loader 可以将文件从不同的语言（如 TypeScript）转换为 JavaScript，或将内联图像转换为 data URL。loader 甚至允许你直接在 JavaScript 模块中 import CSS文件！loader是个函数，接收三个参数content, map, meta，回调三个参数，默认从后向前执行；其中可添加pitch函数，执行顺序相反。
+
+plugin插件是 webpack 的支柱功能。webpack 自身也是构建于，你在 webpack 配置中用到的相同的插件系统之上！插件目的在于解决 loader 无法实现的其他事。webpack 插件是一个具有 apply 属性的 JavaScript 对象。apply 属性会被 webpack compiler 调用，并且 compiler 对象可在整个编译生命周期访问
 
 # 二、前端工程化简介
 工程化分为四个方面：模块化、组件化、规范化、自动化。[参考](https://juejin.cn/post/6844904073817227277)
@@ -55,7 +72,6 @@ __前端模块化是前端组件化、工程化的基石。__
 尽可能解放重复无意义的操作，让代码做该做的事。gulp\webpack是实现打包这步的工具，CI/CD、自动发布是自动化的终极目标；提交代码的那一刻，剩下的都交给电脑运行，在这方面，大公司的处理就非常完善。监测git push，提交完代码之后，自动打包镜像部署服务kubernate（有些需人工确认的开发按钮确认继续或回退），构建成功返回结果，看部署服务器是否启动即可。
 
 脚手架工具：Yeoman\Plop（不知以后用不用得上，先记录下优秀博客）[前端工程化===Webpack？No，我来告诉你什么是前端工程化！](https://juejin.cn/post/6847009773305462791#heading-7)
-
 
 
 

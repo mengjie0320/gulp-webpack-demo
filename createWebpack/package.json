@@ -1,0 +1,29 @@
+{
+  "name": "createwebpack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "build": "node ./script/build.js",
+    "start": "node --inspect-brk ./node_modules/webpack/bin/webpack.js",
+    "debug": "node --inspect-brk ./script/build.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.12.13",
+    "@babel/parser": "^7.12.15",
+    "@babel/preset-env": "^7.12.13",
+    "globby": "^11.0.2",
+    "jquery": "^3.5.1",
+    "loader-utils": "^2.0.0",
+    "schema-utils": "^3.0.0",
+    "tapable": "^2.2.0",
+    "webpack": "^5.20.1",
+    "webpack-cli": "^4.5.0"
+  }
+}
